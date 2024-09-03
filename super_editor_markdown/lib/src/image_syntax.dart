@@ -24,7 +24,7 @@ class SuperEditorImageSyntax extends md.LinkSyntax {
         );
 
   @override
-  md.Node? close(
+  Iterable<md.Node>? close(
     md.InlineParser parser,
     covariant md.SimpleDelimiter opener,
     md.Delimiter? closer, {
@@ -51,7 +51,7 @@ class SuperEditorImageSyntax extends md.LinkSyntax {
       var leftParenIndex = parser.pos;
       var inlineLink = _parseInlineLink(parser);
       if (inlineLink != null) {
-        return _tryCreateInlineLink(parser, inlineLink, getChildren: getChildren);
+        return [_tryCreateInlineLink(parser, inlineLink, getChildren: getChildren)];
       }
       // At this point, we've matched `[...](`, but that `(` did not pan out to
       // be an inline link. We must now check if `[...]` is simply a shortcut
@@ -140,9 +140,10 @@ class SuperEditorImageSyntax extends md.LinkSyntax {
   /// Tries to create a reference link node.
   ///
   /// Returns the link if it was successfully created, `null` otherwise.
-  md.Node? _tryCreateReferenceLink(md.InlineParser parser, String label,
+  Iterable<md.Node>? _tryCreateReferenceLink(md.InlineParser parser, String label,
       {required List<md.Node> Function() getChildren}) {
-    return _resolveReferenceLink(label, parser.document.linkReferences, getChildren: getChildren);
+    final node = _resolveReferenceLink(label, parser.document.linkReferences, getChildren: getChildren);
+    return [if (node != null) node];
   }
 
   // Tries to create an inline link node.
@@ -480,6 +481,7 @@ class SuperEditorImageSyntax extends md.LinkSyntax {
     }
   }
 
+  @override
   md.Element createNode(
     String destination,
     String? title, {

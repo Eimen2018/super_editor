@@ -507,28 +507,28 @@ packages:
       path: "../.."
       relative: true
     source: path
-    version: "0.3.0-dev.3"
+    version: "0.3.0-dev.5"
   super_editor_markdown:
     dependency: "direct main"
     description:
       path: "../../../super_editor_markdown"
       relative: true
     source: path
-    version: "0.1.5"
+    version: "0.1.6"
   super_editor_quill:
     dependency: "direct main"
     description:
       path: "../../../super_editor_quill"
       relative: true
     source: path
-    version: "0.1.0-dev.3"
+    version: "0.1.0-dev.6"
   super_text_layout:
     dependency: "direct main"
     description:
       path: "../../../super_text_layout"
       relative: true
     source: path
-    version: "0.1.11"
+    version: "0.1.12"
   term_glyph:
     dependency: transitive
     description:
@@ -661,10 +661,10 @@ packages:
     dependency: transitive
     description:
       name: vm_service
-      sha256: f652077d0bdf60abe4c1f6377448e8655008eef28f128bc023f7b5e8dfeb48fc
+      sha256: "5c5f338a667b4c644744b661f309fb8080bb94b18a7e91ef1dbd343bed00ed6d"
       url: "https://pub.dev"
     source: hosted
-    version: "14.2.4"
+    version: "14.2.5"
   watcher:
     dependency: transitive
     description:
